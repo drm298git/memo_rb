@@ -9,6 +9,7 @@ memo_type = gets.to_i # ユーザーの入力値を取得し、数字へ変換�
 
 #1と2の入力による条件分岐
 if memo_type == 1
+<<<<<<< HEAD
 #新規メモの作成
 p "新規でメモを作成します。拡張子なしで名前を入力してください"
 file_name = gets.chomp
@@ -26,4 +27,9 @@ elsif memo_type == 2
 
 else 
     p "1か2の数値を入力してください"
+=======
+    p "新規作成画面"    #新規メモの作成
+else memo_type == 2
+    p "編集画面"   #既存メモの編集
+>>>>>>> origin/main
 end
