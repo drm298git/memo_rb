@@ -19,11 +19,20 @@ memo = imput_memo.chomp
 
 CSV.open("#{file_name}.csv","w") do |csv|
 p "[#{memo}]"
+
 end
 
 elsif memo_type == 2
 p "保存されているメモを編集します。拡張子なしで名前を入力してください"   #既存メモの編集
+file_name = gets.chomp
 
+p "メモの内容を編集して下さい。Ctrl+Dで保存します"
+edit_memo = STDIN.read
+memo = edit_memo.chomp
+
+CSV.open("#{file_name}.csv","a") do |csv|
+p "[#{memo}]"
+end
 
 else 
 p "1か2の数値を入力してください"
