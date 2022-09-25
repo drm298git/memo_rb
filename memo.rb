@@ -15,7 +15,7 @@ imput_memo = STDIN.read
 memo = imput_memo.chomp
 
 CSV.open("#{file_name}.csv","w") do |csv|
-CSV.puts "[#{memo}]"
+puts memo
 
 end
 
@@ -30,7 +30,7 @@ edit_memo = STDIN.read
 memo = edit_memo.chomp
 
 CSV.open("#{file_name}.csv","a") do |csv|
-CSV.puts "[#{memo}]"
+puts memo
 
 end
 
