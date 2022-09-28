@@ -6,34 +6,34 @@ memo_type = gets.to_i # ユーザーの入力値を取得し、数字へ変換�
 
 #1と2の入力による条件分岐
 if memo_type == 1
-#新規メモの作成
+    #新規メモの作成
 print "新規でメモを作成します。拡張子なしで名前を入力してください\n"
 file_name = gets.chomp
 
-print "メモの内容を記入して下さい。Ctrl+Dで保存します\n"
+print "メモの内容を記入して下さい。Enter→Ctrl+Dで保存します\n"
 imput_memo = STDIN.read
 memo = imput_memo.chomp
-memo = CSV.open("#{file_name}.csv","w") do |csv|
 
-puts memo
+CSV.open("#{file_name}.csv","w") do |csv|
+csv << ["#{memo}"]
 end
 
 elsif memo_type == 2
 #既存メモの編集
-print "保存されているメモを編集します。拡張子なしで名前を入力してください\n" 
+print "保存されているメモの内容を追記します。拡張子なしで名前を入力してください\n" 
 file_name = gets.chomp
 
-print "メモの内容を編集して下さい。Ctrl+Dで保存します\n"
+print "メモの内容を追記して下さい。Enter→Ctrl+Dで保存します\n"
 edit_memo = STDIN.read
 memo = edit_memo.chomp
 
 memo = CSV.open("#{file_name}.csv","a") do |csv|
-puts memo
+csv << ["#{memo}"]
 end
 
 elsif memo_type == 3
-puts "アプリを終了します"
+puts "アプリを終了します\n"
 
 else
-print "1,2,3のどれかの数値を入力してください"
+print "1,2,3のどれかの数値を入力してください\n"
 end
