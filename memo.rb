@@ -13,7 +13,8 @@ file_name = gets.chomp
 print "メモの内容を記入して下さい。Ctrl+Dで保存します\n"
 imput_memo = STDIN.read
 memo = imput_memo.chomp
-memo = CSV.open("#{file_name}.csv","w") do |csv|
+CSV.open("#{file_name}.csv","w") do |csv|
+csv << ["#{memo}"]
 
 puts memo
 end
@@ -27,8 +28,9 @@ print "メモの内容を編集して下さい。Ctrl+Dで保存します\n"
 edit_memo = STDIN.read
 memo = edit_memo.chomp
 
-memo = CSV.open("#{file_name}.csv","a") do |csv|
-puts memo
+CSV.open("#{file_name}.csv","a") do |csv|
+csv << ["#{memo}"]
+
 end
 
 elsif memo_type == 3
